@@ -19,3 +19,8 @@ void* bs_memset(void* _src, int32_t _set_val, int32_t _size)
 {
 	return memset(_src, _set_val, _size);
 }
+
+void* bs_memcpy(void* _dest, const void* _src, int32_t _size)
+{
+	return memcpy(_dest, _src, _size);
+}

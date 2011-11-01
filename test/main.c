@@ -17,16 +17,26 @@ int32_t compare_func(avl_node_data_t arg1, avl_node_data_t arg2)
 
 int32_t main()
 {
+	int32_t i;
 	bs_avl_t avl;
+	avl_node_data_t data;
 
 	bs_debug("bs_lib test!! \n");
+	srand(0);
 
 	bs_avl_init(&avl, compare_func);
 
-	bs_avl_insert(&avl, 'a');
-	bs_avl_insert(&avl, 'z');
-	bs_avl_insert(&avl, 's');
-	bs_avl_insert(&avl, 't');
+	for(i = 0;  i <= 100; i++)
+	{
+		bs_avl_insert(&avl, rand()%100 + 1);
+	}
+	bs_avl_trevers(&avl);
+
+	data = bs_avl_search(&avl, 55);
+	if(data == 0)
+	{
+		bs_debug("not found!!\n");
+	}
 
 	bs_avl_deinit(&avl);
 	return 0;

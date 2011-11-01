@@ -15,6 +15,7 @@ EXTERN void bs_avl_init(bs_avl_t* avl, compare_func_t comp);
 EXTERN void bs_avl_deinit(bs_avl_t* avl);
 EXTERN int32_t bs_avl_insert(bs_avl_t* avl, avl_node_data_t data);
 EXTERN int32_t bs_avl_remove(bs_avl_t* avl, avl_node_data_t data);
-EXTERN int32_t bs_avl_search(bs_avl_t* avl, avl_node_data_t data);
+EXTERN avl_node_data_t bs_avl_search(bs_avl_t* avl, avl_node_data_t data);
 
+EXTERN void bs_avl_trevers(bs_avl_t* avl);
 #endif /*__BS_LIB_AVL_H__*/
