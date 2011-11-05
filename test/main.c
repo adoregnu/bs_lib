@@ -38,6 +38,10 @@ int32_t main()
 		bs_debug("not found!!\n");
 	}
 
+	bs_avl_remove(&avl, 9);
+	bs_avl_trevers(&avl);
+
 	bs_avl_deinit(&avl);
 	return 0;
 }
+
