@@ -8,15 +8,16 @@ COMPILE.c = $(CC) $(CFLAGS) -c
 
 TARGET = bs_lib.a
 
-SRCS = bs_lib_pal.c bs_lib_avl.c
+#SRCS = bs_lib_pal.c bs_lib_avl.c
 OBJS = bs_lib_pal.o bs_lib_avl.o
+TEST_OBJS= main.o menu.o
 
 %.o: %.c
 	$(COMPILE.c) $<
 
 all: $(TARGET)
 
-libtest: main.o $(TARGET)
+libtest: $(TEST_OBJS) $(TARGET)
 	$(CC) $(CFLAGS) $^ -o $@
 
 bs_lib.a: $(OBJS)
