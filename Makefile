@@ -2,7 +2,7 @@
 .SUFFIXES :  .c .o
 
 CC = gcc
-VPATH = pal tree sort data_struct test
+VPATH = pal sort data_structure test
 CFLAGS = -I./data_structure -I./pal
 COMPILE.c = $(CC) $(CFLAGS) -c
 
