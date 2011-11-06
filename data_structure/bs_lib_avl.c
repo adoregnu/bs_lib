@@ -6,7 +6,7 @@
 
 typedef struct _avl_node_t
 {
-	avl_node_data_t data;
+	avl_data_t data;
 	struct _avl_node_t *left_child;
 	struct _avl_node_t *right_child;
 } avl_node_t;
@@ -104,7 +104,7 @@ static avl_node_t* avl_rebalance(avl_node_t *root)
 static avl_node_t* avl_insert_node(
 	bs_avl_t* avl, 
 	avl_node_t *parent, 
-	avl_node_data_t data)
+	avl_data_t data)
 {
 	avl_node_t *new_node = NULL;
 
@@ -149,7 +149,7 @@ static avl_node_t* avl_insert_node(
 	return parent;
 }
 
-int32_t bs_avl_insert(bs_avl_t* avl, avl_node_data_t data)
+int32_t bs_avl_insert(bs_avl_t* avl, avl_data_t data)
 {
 	avl->root = (void*)avl_insert_node(avl, 
 						(avl_node_t*)avl->root, data);
@@ -166,7 +166,7 @@ int32_t bs_avl_insert(bs_avl_t* avl, avl_node_data_t data)
 static avl_node_t* avl_remove_node(
 	bs_avl_t* avl, 
 	avl_node_t *parent, 
-	avl_node_data_t data)
+	avl_data_t data)
 {
 	avl_node_t* toRemove = NULL;
 	avl_node_t* next = NULL;
@@ -238,7 +238,7 @@ static avl_node_t* avl_remove_node(
 }
 
 
-int32_t bs_avl_remove(bs_avl_t* avl, avl_node_data_t data)
+int32_t bs_avl_remove(bs_avl_t* avl, avl_data_t data)
 {
 	avl->root = (void*)avl_remove_node(avl, (avl_node_t*)avl->root, data);
 
@@ -247,13 +247,13 @@ int32_t bs_avl_remove(bs_avl_t* avl, avl_node_data_t data)
 }
 
 
-static avl_node_data_t avl_search_node(
+static avl_data_t avl_search_node(
 	bs_avl_t* avl, 
 	avl_node_t* root, 
-	avl_node_data_t data)
+	avl_data_t data)
 {
 	if(NULL == root)
-		return (avl_node_data_t)0;
+		return (avl_data_t)0;
 
 	if(avl->compare(root->data, data) < 0)
 	{
@@ -298,7 +298,7 @@ static void avl_free_node(avl_node_t *root)
 
 
 
-avl_node_data_t bs_avl_search(bs_avl_t* avl, avl_node_data_t data)
+avl_data_t bs_avl_search(bs_avl_t* avl, avl_data_t data)
 {
 	return avl_search_node(avl, (avl_node_t*)avl->root, data);
 }
