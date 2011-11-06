@@ -11,6 +11,8 @@ typedef struct _bs_avl_t
 	compare_func_t compare;
 }bs_avl_t;
 
+typedef int32_t (*trevers_func_t)(bs_avl_t *avl);
+
 EXTERN void bs_avl_init(bs_avl_t* avl, compare_func_t comp);
 EXTERN void bs_avl_deinit(bs_avl_t* avl);
 EXTERN int32_t bs_avl_insert(bs_avl_t* avl, avl_node_data_t data);

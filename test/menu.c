@@ -36,9 +36,9 @@ int32_t avl_test(u_int32_t arg1)
 
 	bs_avl_init(&avl, compare_func);
 
-	for(i = 0;  i <= 100; i++)
+	for(i = 0;  i < 100; i++)
 	{
-		bs_avl_insert(&avl, rand()%100 + 1);
+		bs_avl_insert(&avl, rand()%100);
 	}
 	bs_avl_trevers(&avl);
 
@@ -48,7 +48,7 @@ int32_t avl_test(u_int32_t arg1)
 		bs_debug("not found!!\n");
 	}
 
-	bs_avl_remove(&avl, 9);
+	bs_avl_remove(&avl, 8);
 	bs_avl_trevers(&avl);
 
 	bs_avl_deinit(&avl);

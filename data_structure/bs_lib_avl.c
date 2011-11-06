@@ -275,13 +275,13 @@ static void avl_trevers_node(avl_node_t* root, int32_t depth)
 	if(root == NULL) 
 		return;
 
-	depth += bs_debug("[%2d]", root->data);
-	//for(i = 0; i < depth; i++) printf("-");
+	depth += bs_debug("[%d]+", root->data);
 
 	avl_trevers_node(root->right_child, depth);
 
 	bs_debug("\n");
-	for(i = 0; i  < depth; i++) printf("-");
+	for(i = 0; i < depth; i++) printf(" ");
+
 	avl_trevers_node(root->left_child, depth);
 
 }

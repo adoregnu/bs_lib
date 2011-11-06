@@ -2,14 +2,13 @@
 .SUFFIXES :  .c .o
 
 CC = gcc
-VPATH = avl_tree pal test
-CFLAGS = -I./avl_tree -I./pal
+VPATH = pal tree sort data_struct test
+CFLAGS = -I./data_structure -I./pal
 COMPILE.c = $(CC) $(CFLAGS) -c
 
 TARGET = bs_lib.a
 
-#SRCS = bs_lib_pal.c bs_lib_avl.c
-OBJS = bs_lib_pal.o bs_lib_avl.o
+LIB_OBJS = bs_lib_pal.o bs_lib_avl.o
 TEST_OBJS= main.o menu.o
 
 %.o: %.c
@@ -20,7 +19,7 @@ all: $(TARGET)
 libtest: $(TEST_OBJS) $(TARGET)
 	$(CC) $(CFLAGS) $^ -o $@
 
-bs_lib.a: $(OBJS)
+bs_lib.a: $(LIB_OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 
