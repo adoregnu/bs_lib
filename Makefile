@@ -8,7 +8,7 @@ COMPILE.c = $(CC) $(CFLAGS) -c
 
 TARGET = bs_lib.a
 
-LIB_OBJS = bs_lib_pal.o bs_lib_avl.o
+LIB_OBJS = bs_lib_pal.o bs_lib_avl.o bs_lib_stack.o
 TEST_OBJS= main.o menu.o
 
 %.o: %.c
